@@ -21,9 +21,10 @@ const SinglePost = (props: Props) => {
           <h2 className="text-gray-100">{title}</h2>
           <div className="text-gray-100">{create_date.substring(0, 10)}</div>
           {tags.map((tag) => (
-            <span className="text-gray-100 bg-gray-500 rounded-xl px-2 pb-1 font-medium">{tag}</span>
+            <span className="text-white bg-gray-500 rounded-xl px-2 pb-1 font-medium">{tag}</span>
           ))}
         </div>
+        <p className="text-gray-100">{description}</p>
       </section>
     </Link>
   );
