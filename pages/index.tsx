@@ -16,23 +16,15 @@ export const getStaticProps = async () => {
 export default function Home({ allPosts }) {
   console.log(allPosts);
   return (
-    <div className="">
+    <div className="flex items-center justify-center">
       <Head>
         <title>my-blog</title>
       </Head>
-      <main className="container w-full mt-16 bg-amber-400">
+      <main className="container w-full mt-16 bg-amber-400 ">
         <h1 className="text-5xl font-medium text-center mb-16">test</h1>
         {allPosts.map((post) => (
           <div className="mx-4">
-            <SinglePost
-              id={post.id}
-              title={post.title}
-              description={post.description}
-              create_date={post.create_date}
-              update_date={post.update_date}
-              slug={post.slug}
-              tags={post.tags}
-            />
+            <SinglePost id={post.id} title={post.title} description={post.description} create_date={post.create_date} update_date={post.update_date} slug={post.slug} tags={post.tags} />
           </div>
         ))}
       </main>
