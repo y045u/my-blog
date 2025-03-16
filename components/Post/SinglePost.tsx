@@ -8,7 +8,7 @@ type Props = {
   create_date: string;
   update_date: string;
   slug: string;
-  tags: string;
+  tags: string[];
 };
 
 const SinglePost = (props: Props) => {
@@ -20,7 +20,9 @@ const SinglePost = (props: Props) => {
         <div className="flex items-center gap-3">
           <h2 className="text-gray-100">{title}</h2>
           <div className="text-gray-100">{create_date.substring(0, 10)}</div>
-          <span className="text-gray-100 bg-gray-500 rounded-xl px-2 pb-1 font-medium">{tags}</span>
+          {tags.map((tag) => (
+            <span className="text-gray-100 bg-gray-500 rounded-xl px-2 pb-1 font-medium">{tag}</span>
+          ))}
         </div>
       </section>
     </Link>
