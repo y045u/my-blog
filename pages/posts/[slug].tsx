@@ -1,9 +1,12 @@
-import { getSinglePost } from "@/lib/notionAPI";
+import { getAllPosts, getSinglePost } from "@/lib/notionAPI";
 import React from "react";
 
 export const getStaticPaths = async () => {
+  const allPosts = await getAllPosts();
+  const paths = allPosts.map(({ slug }) => ({ params: { slug } }));
+
   return {
-    paths: [{ params: { slug: "first-post" } }, { params: { slug: "second-post" } }, { params: { slug: "third-post" } }],
+    paths,
     // fallbackページとは
     // 1. false: 404ページを表示
     // 2. true: ローディング表示 → 新ページを生成。次回以降は即座に表示（キャッシュ済み）
